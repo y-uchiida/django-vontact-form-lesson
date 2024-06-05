@@ -20,7 +20,7 @@ class IndividualContactConﬁrm(generic.FormView):
     form_class = IndividualContactForm
  
     def form_valid(self, form):
-        return render(self.request, 'contacts/individual_contact_conﬁrm.html', {'form': form})
+        return render(self.request, 'contacts/individual_contact_confirm.html', {'form': form})
  
     def form_invalid(self, form):
         return render(self.request, IndividualContactInput.template_name, {'form': form})
@@ -53,7 +53,7 @@ class CorporateContactConﬁrm(generic.FormView):
     form_class = CorporateContactForm
     
     def form_valid(self, form):
-        return render(self.request, 'contacts/corporate_contact_conﬁrm.html', {'form': form})
+        return render(self.request, 'contacts/corporate_contact_confirm.html', {'form': form})
     
     
     def form_invalid(self, form):
