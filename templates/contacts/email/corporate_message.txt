@@ -1,7 +1,8 @@
-企業名：
-担当者名：
-電話番号：
-メールアドレス：
- 
+企業名：{{form.corporate_name.value}}
+担当者名：{{form.pic_name.value}}
+電話番号：{{form.phonenumber.value}}
+メールアドレス：{{form.email.value}}
+
 内容
 --------------------------------------------
+{{form.content.value}}
