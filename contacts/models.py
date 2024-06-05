@@ -34,3 +34,22 @@ class BaseContact(models.Model):
         message = message_template.render(context)
  
         CustomUser.email_users(CustomUser.get_users_emailed(), subject, message, from_email)
+
+
+class IndividualContact(BaseContact):
+    fullname = models.CharField(verbose_name='氏名', blank=False, max_length=30)
+    kana = models.CharField(verbose_name='フリガナ', blank=False, max_length=60)
+ 
+    @staticmethod
+    def email_users(form, from_email):
+        BaseContact.base_email_users(form, from_email, 'individual')
+ 
+ 
+class CorporateContact(BaseContact):
+    corporate_name = models.CharField(verbose_name='企業名', blank=False, max_length=30)
+    pic_name = models.CharField(verbose_name='担当者名', blank=False, max_length=30)
+    phonenumber = models.CharField(verbose_name='電話番号', blank=False, max_length=16)
+ 
+    @staticmethod
+    def email_users(form, from_email):
+        BaseContact.base_email_users(form, from_email, 'corporate')
