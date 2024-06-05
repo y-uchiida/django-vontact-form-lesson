@@ -131,3 +131,11 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# メール送信設定
+# console に設定することで、実際にメールは送信せず、
+# Django 開発サーバーが動いているコンソール上にメール内容が出力される
+AUTH_USER_MODEL = 'accounts.CustomUser' # accounts アプリの CustomUser に登録されたメールを使う
+ 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' # console に出力
+DEFAULT_FROM_EMAIL = 'no-reply@mail.example.com' # Djangoから送信されるメールに設定する送信元アドレス
